@@ -23,7 +23,7 @@
 <body onload="loadIndex()">
 
 	<!-- Banner -->
-	<section class="hero is-dark is-large">
+	<section class="hero is-dark is-large main-hero">
 
 	  <!-- Obere Navbar -->
 	  <div class="hero-head">
@@ -48,8 +48,15 @@
 	  </div>
 
 	  <!-- Hero-Banner Body -->
-	  <div class="hero-body" style="padding-top: 0px; padding-bottom: 0px;"> <!-- Bugbehebung: Framework-Style muss hier überschrieben werden. -->
-			<canvas id="index-chart"></canvas>
+	  <div class="hero-body"> <!-- Bugbehebung: Framework-Style muss hier überschrieben werden. -->
+	    <div class="container has-text-centered">
+	      <h1 class="title">
+	        Crypton
+	      </h1>
+	      <h2 class="subtitle">
+	        Kryptowährungen im Vergleich
+	      </h2>
+	    </div>
 	  </div>
 
 	  <!-- Hero-Banner Foot Tabs -->
@@ -75,43 +82,32 @@
 	<!-- Seitencontent -->
 	<div id="current-site">
 
-		See <a href="./html/wiki.einleitung.html">Wiki</a>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<div class="container has-text-centered">
+			<h1 class="title is-1">Aktuelle Kurse</h1>
+		</div>
+
+		<div class="columns">
+
+			<div class="column currency-box"><div class="columns is-mobile">
+				<div class="column is-one-third">
+					<img src="res/icon/coin.svg">
+				</div>
+				<div class="column">
+					<h5 class="title is-5"><span>Bitcoin</span><span class="kurs" id="btc-kurs">Loading...</span></h5>
+					<p>Hey.</p>
+					<span class="tag is-dark">Dark</span>
+				</div>
+			</div></div>
+
+			<div class="column currency-box">
+				2
+			</div>
+
+			<div class="column currency-box">
+				3
+			</div>
+
+		</div>
 
 	</div>
 </body>
