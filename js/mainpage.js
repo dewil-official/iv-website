@@ -2,8 +2,7 @@
     Erstelle den Graphen für den Banner
 */
 // API: https://min-api.cryptocompare.com/
-const btc_url = "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR";
-const eth_url = "https://api.coinmarketcap.com/v2/ticker/1/?convert=EUR";
+const api_url = "https://min-api.cryptocompare.com/data/";
 
 function loaded() {
   // getExchanges();
@@ -13,8 +12,30 @@ function loaded() {
 // Http Request an CryptoCompare für die Daten.
 function getExchanges() {
 
-  $.get(btc_url, function(responseText) {
-    document.getElementById("btc-kurs").innerHTML = responseText["EUR"] + "€";
+  // Bitcoin Kurs
+  setCurrency("btc");
+
+  // Bitcoin Kurs
+  setCurrency("eth");
+
+  // Litecoin Kurs
+  setCurrency("ltc");
+
+  // XRP Kurs
+  setCurrency("xrp");
+
+}
+
+function setCurrency(name) {
+
+  /*  Vereinheitlichung der Anfragen:                                    /
+  /   Jquery sendet einen HttpRequest an das API, mithilfe einer         /
+  /   zusammengesetzten URL aus API, Name und Parametern.               */
+  var url = api_url + "price?fsym=" + name.toUpperCase() + "&tsyms=EUR";
+
+  $.get(url, function(responseText) {
+    // Bei Erhalt der Daten, aktualisiere die Seite.
+    document.getElementById(name + "-kurs").innerHTML = responseText["EUR"] + "€";
   });
 
 }

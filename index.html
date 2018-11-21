@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="css/global.css"> <!-- Stylesheet für globales Theme -->
 	<script src="js/jquery.js"></script>
 	<script src="js/navigation.js"></script>
-	<script src="js/cctx.js"></script>
 	<script src="js/mainpage.js"></script>
 
 </head>
@@ -86,26 +85,52 @@
 			<h1 class="title is-1">Aktuelle Kurse</h1>
 		</div>
 
-		<div class="columns">
+		<!-- Die einzelnen Währungsboxen sind nur am Desktop nebeneinander. -->
+		<div class="columns is-desktop">
 
-			<div class="column currency-box"><div class="columns is-mobile">
+			<div class="column currency-box is-one-third-widescreen"><div class="columns is-mobile">
 				<div class="column is-one-third">
-					<img src="res/icon/coin.svg">
+					<img src="res/icon/btc.svg">
 				</div>
 				<div class="column">
 					<h5 class="title is-5"><span>Bitcoin</span><span class="kurs" id="btc-kurs">Loading...</span></h5>
+					<p>Die "Number One".</p>
+					<span class="tag is-dark">Dark</span>
+				</div>
+			</div></div>
+
+			<div class="column currency-box is-one-third-widescreen"><div class="columns is-mobile">
+				<div class="column is-one-third">
+					<img src="res/icon/eth.svg">
+				</div>
+				<div class="column">
+					<h5 class="title is-5"><span>Etherium</span><span class="kurs" id="eth-kurs">Loading...</span></h5>
 					<p>Hey.</p>
 					<span class="tag is-dark">Dark</span>
 				</div>
 			</div></div>
 
-			<div class="column currency-box">
-				2
-			</div>
+			<div class="column currency-box is-one-third-widescreen"><div class="columns is-mobile">
+				<div class="column is-one-third">
+					<img src="res/icon/ltc.svg">
+				</div>
+				<div class="column">
+					<h5 class="title is-5"><span>Litecoin</span><span class="kurs" id="ltc-kurs">Loading...</span></h5>
+					<p>Hey.</p>
+					<span class="tag is-dark">Dark</span>
+				</div>
+			</div></div>
 
-			<div class="column currency-box">
-				3
-			</div>
+			<div class="column currency-box is-one-third-widescreen"><div class="columns is-mobile">
+				<div class="column is-one-third">
+					<img src="res/icon/xrp.svg">
+				</div>
+				<div class="column">
+					<h5 class="title is-5"><span>XRP</span><span class="kurs" id="xrp-kurs">Loading...</span></h5>
+					<p>Hey.</p>
+					<span class="tag is-dark">Dark</span>
+				</div>
+			</div></div>
 
 		</div>
 

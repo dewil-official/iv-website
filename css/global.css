@@ -49,6 +49,11 @@ body {
   margin-bottom: 22px;
 }
 
+.currency-box img {
+  height: 5.5em;
+  margin: 1em;
+}
+
 .kurs {
   margin-left: 16px;
   color: gray;
