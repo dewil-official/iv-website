@@ -18,21 +18,31 @@
 }
 
 /* Boxen für die aktuellen Kurse */
+
+.columns {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
 .currency-box {
   background-color: #dfdfdf;
   border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  height: 9em;
+}
+
+.currency-box img {
+  height: 7em;
+  margin: 5px;
 }
 
 .currency-box p {
   margin-bottom: 22px;
 }
 
-.currency-box img {
-  height: 5.5em;
-  margin: 1em;
-}
-
 .kurs {
-  margin-left: 16px;
+  font-weight: bold;
   color: gray;
 }
