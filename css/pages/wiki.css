@@ -1,0 +1,44 @@
+/* General Imports */
+@import "../libs/bulma.min.css";
+@import "../libs/animate.css";
+
+/* --------------------------------
+|              Wiki               |
+---------------------------------*/
+
+/* Navigation Bar */
+.navbar {
+  --navbar-box-shadow-color: #1a1a1a;
+  --navbar-box-shadow-size: 0 2px 0 0;
+  --navbar-bottom-box-shadow-size: 0 -2px 0 0;
+}
+
+/* Crypton Text in Navbar */
+.logo-nav-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+}
+
+/* Wiki Artikel für Desktop */
+@media screen and (min-width: 540px) {
+  .wiki-content {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    max-width: 600px;
+  }
+}
+
+/* Wiki Artikel für Mobile */
+@media screen and (max-width: 540px) {
+  .wiki-content {
+    margin: 10px;
+  }
+}
+
+/* Alle Objekte mit zentriertem Text */
+.centered {
+  text-align: center;
+}

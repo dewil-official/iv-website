@@ -1,0 +1,50 @@
+/*----------------------------------------
+|   Eigenschaften für alle Hauptseiten   |
+----------------------------------------*/
+
+/* Nutze den ganzen Bildschirm */
+body {
+  margin: 0px;
+}
+
+/* Informationsbereich */
+#current-site {
+  margin: 5px;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+/* Info-Bereich Header */
+#current-site h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* "Hero"-Banner */
+.hero-body {
+  text-shadow: 2px 2px 4px black;
+}
+
+/* Skaliere das Hintergrundbild des "Hero"-Banners */
+@media screen and (min-width: 1200px) {
+  .main-hero {
+    background-size: 100vw;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .main-hero {
+    background-size: 160vw;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  .main-hero {
+    background-size: 160vw;
+  }
+}
+
+/* Logo-Farbe */
+.white {
+  filter: invert(100%);
+}
