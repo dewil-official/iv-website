@@ -24,6 +24,18 @@ function getExchanges() {
   // XRP Kurs
   setCurrency("xrp");
 
+  // Bitcoin Cash Kurs
+  setCurrency("bch");
+
+  // Monero Kurs
+  setCurrency("xmr");
+
+  // DashCoin Kurs
+  setCurrency("dash");
+
+  // Doge Kurs
+  setCurrency("doge");
+
 }
 
 function setCurrency(name) {

@@ -1,0 +1,24 @@
+/* Imports */
+@import "../libs/bulma.min.css";
+@import "../libs/animate.css";
+
+/* Komponenten Imports */
+@import "../components/globals.css";
+
+/*--------------------------------------
+|       Eigenschaften von Index        |
+--------------------------------------*/
+
+/* "Hero"-Bild für Index */
+.main-hero {
+  background-image: url('../../res/img/banner.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+}
+
+/* News-Feed */
+
+.news {
+
+}
