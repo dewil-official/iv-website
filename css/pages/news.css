@@ -20,5 +20,15 @@
 /* News-Feed */
 
 .news {
+  margin-top: 60px;
+}
 
+.news img {
+  border-radius: 6px;
+  max-height: 100px;
+  width: auto;
+}
+
+.news-title {
+  margin-top: 40px;
 }
