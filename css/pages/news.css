@@ -11,13 +11,17 @@
 
 /* "Hero"-Bild für Index */
 .main-hero {
-  background-image: url('../../res/img/banner.jpg');
+  background-image: url('../../res/img/banner3.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-attachment: fixed;
 }
 
 /* News-Feed */
+
+#current-site {
+  text-align: center;
+}
 
 .news {
   margin-top: 60px;
@@ -32,4 +36,15 @@
 
 .news-title {
   margin-top: 40px;
+}
+
+#current-site .button {
+  margin-top: 20px;
+  margin-bottom: 1000px;
+  width: 400px;
+}
+
+/* Logo-Farbe */
+.white {
+  filter: invert(0%);
 }

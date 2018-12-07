@@ -8,25 +8,6 @@ const outerHtml = '<div class="news">{entries}</div>';
 
 const innerHtml = '<article class="message"> <div class="message-body columns is-mobile"> <div class="column is-one-fifth"> <figure class="image"> <img src={teaserImage} </figure> </div><div class="column"> <strong>{title}</strong><br><p>{shortBody}</p><br><a href="{url}">Mehr...</a></div></div></article>';
 
-/* Raw inner HTML:
-
-<article class="message">
-  <div class="message-body columns is-mobile">
-    <div class="column is-one-fifth">
-      <figure class="image">
-        <img src={teaserImage}
-      </figure>
-    </div>
-    <div class="column">
-      <strong>{title}</strong><br>
-      <p>{shortBody}</p><br>
-      <a href="{url}">Mehr...</a>
-    </div>
-  </div>
-</article>
-
-*/
-
 // Wie der Feed dargestellt werden soll.
 const options = {
   // Anzahl der Einträge
@@ -56,7 +37,9 @@ const options = {
   success: function(){},
 
   // Wird ausgeführt bei erfolgreichem Laden vor der HTML Generierung
-  onData: function(){},
+  onData: function(){
+    $("#current-site .button").remove();
+  },
 }
 
 function loaded() {
