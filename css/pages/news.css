@@ -18,7 +18,6 @@
 }
 
 /* News-Feed */
-
 #current-site {
   text-align: center;
 }
@@ -42,9 +41,4 @@
   margin-top: 20px;
   margin-bottom: 1000px;
   width: 400px;
-}
-
-/* Logo-Farbe */
-.white {
-  filter: invert(0%);
 }

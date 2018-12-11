@@ -1,0 +1,137 @@
+<!doctype html>
+<head>
+
+	<!-- Website Informationen -->
+	<title> Crypto-Currencies </title>
+	<link rel="icon" href="../res/icon/favicon.ico"> <!-- Icon für die Seite -->
+
+	<!-- Metadaten -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Übersicht über alle Cryptowährungen" />
+	<meta name="keywords" content="buch" />
+
+	<!-- Scripts / Libs / CSS -->
+	<link rel="stylesheet" href="../css/pages/waehrungen.css"> <!-- Stylesheet für globales Theme -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.rss.min.js"></script>
+
+</head>
+
+<body onload="loaded()">
+
+	<!-- Banner -->
+	<section class="hero is-dark is-medium main-hero">
+
+	  <!-- Obere Navbar -->
+	  <div class="hero-head">
+		<nav class="navbar">
+		  <div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item">
+	        <img src="../res/logo.svg" class="white"/>
+	      </a>
+			</div>
+			<!-- Obere Navbar-Tabs -->
+			<div id="navbarMenuHeroB" class="navbar-menu">
+			  <div class="navbar-end">
+				<a class="navbar-item is-active">Start</a>
+				<a class="navbar-item">Vergleich</a>
+				<a class="navbar-item" href="wiki.einleitung.html">Wiki</a>
+				<a class="navbar-item">Tools</a>
+			  </div>
+			</div>
+		  </div>
+		</nav>
+	  </div>
+
+	  <!-- Hero-Banner Body -->
+	  <div class="hero-body"> <!-- Bugbehebung: Framework-Style muss hier überschrieben werden. -->
+	    <div class="container has-text-centered">
+	      <h1 class="title">
+	        Crypton
+	      </h1>
+	      <h2 class="subtitle">
+	        Kryptowährungen im Vergleich
+	      </h2>
+	    </div>
+	  </div>
+
+	  <!-- Hero-Banner Foot Tabs -->
+	  <div class="hero-foot">
+		<nav class="tabs is-boxed is-fullwidth">
+		  <div class="container">
+			<ul>
+			  <li>
+					<a href="../index.html">Start</a>
+			  </li>
+			  <li class="is-active">
+					<a>Währungen</a>
+			  </li>
+			  <li>
+					<a href="start.news.html">News</a>
+			  </li>
+			</ul>
+			</div>
+		</nav>
+	  </div>
+	</section>
+
+	<div class="container has-text-centered waehrungen-title">
+		<h1 class="title is-1">Kurse vergleichen</h1>
+	</div>
+
+	<!-- Seitencontent -->
+	<div id="current-site" class="columns">
+		<!-- Left-side box -->
+		<div class="column box">
+			<!-- Dropdown currency selection -->
+			<div class="dropdown">
+				<div class="dropdown-trigger">
+					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+			      <span>Währung auswählen...</span>
+			      <span class="icon is-small">
+							<figure class="image is-16x16">
+							  <img src="../res/icon/arrow-down.svg">
+							</figure>
+			      </span>
+			    </button>
+				</div>
+				<!-- Currencies -->
+				<div class="dropdown-menu" id="dropdown-menu-left" role="menu">
+					<div class="dropdown-content">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Exchange Icon in the middle -->
+		<div class="column is-one-fifth exchange-icon">
+			<figure class="image is-64x64">
+			  <img src="../res/icon/exchange.svg">
+			</figure>
+		</div>
+		<!-- Right-side box -->
+		<div class="column box">
+			<!-- Dropdown currency selection -->
+			<div class="dropdown">
+				<div class="dropdown-trigger">
+					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+			      <span>Währung auswählen...</span>
+			      <span class="icon is-small">
+							<figure class="image is-16x16">
+							  <img src="../res/icon/arrow-down.svg">
+							</figure>
+			      </span>
+			    </button>
+				</div>
+				<!-- Currencies -->
+				<div class="dropdown-menu" id="dropdown-menu-right" role="menu">
+					<div class="dropdown-content">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
