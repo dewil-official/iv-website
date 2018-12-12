@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="../css/pages/waehrungen.css"> <!-- Stylesheet für globales Theme -->
 	<script src="../js/jquery.js"></script>
 	<script src="../js/jquery.rss.min.js"></script>
+	<script src="../js/waehrungen.js"></script>
 
 </head>
 
@@ -85,11 +86,12 @@
 	<div id="current-site" class="columns">
 		<!-- Left-side box -->
 		<div class="column box">
+			<div id="left-inner-box"></div>
 			<!-- Dropdown currency selection -->
 			<div class="dropdown">
 				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-			      <span>Währung auswählen...</span>
+					<button class="button" onclick='toggleDropdown("left")' aria-haspopup="true" aria-controls="dropdown-menu">
+			      <span id="left-text">Währung auswählen...</span>
 			      <span class="icon is-small">
 							<figure class="image is-16x16">
 							  <img src="../res/icon/arrow-down.svg">
@@ -100,7 +102,7 @@
 				<!-- Currencies -->
 				<div class="dropdown-menu" id="dropdown-menu-left" role="menu">
 					<div class="dropdown-content">
-
+						<!-- Currency Selection gets Auto-Placed here -->
 					</div>
 				</div>
 			</div>
@@ -113,11 +115,12 @@
 		</div>
 		<!-- Right-side box -->
 		<div class="column box">
+			<div id="right-inner-box"></div>
 			<!-- Dropdown currency selection -->
 			<div class="dropdown">
 				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-			      <span>Währung auswählen...</span>
+					<button class="button" onclick='toggleDropdown("right")' aria-haspopup="true" aria-controls="dropdown-menu">
+			      <span id="right-text">Währung auswählen...</span>
 			      <span class="icon is-small">
 							<figure class="image is-16x16">
 							  <img src="../res/icon/arrow-down.svg">
@@ -128,7 +131,7 @@
 				<!-- Currencies -->
 				<div class="dropdown-menu" id="dropdown-menu-right" role="menu">
 					<div class="dropdown-content">
-
+						<!-- Currency Selection gets Auto-Placed here -->
 					</div>
 				</div>
 			</div>
