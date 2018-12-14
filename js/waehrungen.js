@@ -44,6 +44,7 @@ function toggleDropdown(side) {
 }
 
 function select(nr, side) {
+  console.log("Selected " + nr);
   // Save, what currency is active.
   if (side == "left") {
     leftSelection = nr;
@@ -56,7 +57,7 @@ function select(nr, side) {
 
   // Update the inner box
   var obj = "";
-  changeHtml(id, side + "-inner-box", obj);
+  changeHtml("id", side + "-inner-box", obj);
 
   // Update dropdown list to match "is-active"
 
@@ -71,7 +72,8 @@ function populateDropdown() {
   for (i = 0; i < currencies.length; i++) {
     content += '<a class="dropdown-item'
     if (leftSelection==i) { content += ' is-active' }
-    content += ' onclick=select('+i+', "left")>';
+    // content += ' onclick="select('+i+', 0)">'; // NOT WORKING
+    content += '">';
     content += currencies[i].name;
     content += '</a>';
   }
@@ -85,14 +87,23 @@ function populateDropdown() {
   for (i = 0; i < currencies.length; i++) {
     content += '<a class="dropdown-item'
     if (leftSelection==i) { content += ' is-active' }
-    content += ' onclick=select('+i+', "right")>';
+    // content += ' onclick="select('+i+', 1)">'; // NOT WORKING
+    content += '">';
     content += currencies[i].name;
-    content += '</a>';
+    content += '</a> ';
   }
   content = '<div class="dropdown-content">' + content + '</div>';
 
   changeHtml("id", "dropdown-menu-right", content);
 
+  // Add Click Functions (Need to do in a function)
+  // BUG: i stays the same (13) after the last for() and when "click" is called, i is always 1
+  for (i = 0; i < $('#dropdown-menu-right > .dropdown-content > a').length - 1; i++) {
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).click(function(){ select(i,"right"); return false; });
+  }
+  for (i = 0; i < $('#dropdown-menu-right > .dropdown-content > a').length - 1; i++) {
+    $('#dropdown-menu-left > .dropdown-content > a').eq(i).click(function(){ select(i,"left"); return false; });
+  }
 
 }
 
