@@ -43,21 +43,22 @@ function toggleDropdown(side) {
   }
 }
 
-function select(nr, side) {
-  console.log("Selected " + nr);
+function select(that) {
+  console.log($(that));
+  console.log("Selected " + $(that).data("nr"));
   // Save, what currency is active.
-  if (side == "left") {
-    leftSelection = nr;
-  } else if (side == "right") {
-    rightSelection = nr;
+  if ($(that).data("side") == "left") {
+    leftSelection = $(that).data("nr");
+  } else if ($(that).data("side") == "right") {
+    rightSelection = $(that).data("nr");
   }
 
   // Update the dropdown box text
-  $("#"+side+"-text").html(currencies[nr].name);
+  $("#"+$(that).data("side")+"-text").html(currencies[nr].name);
 
   // Update the inner box
   var obj = "";
-  changeHtml("id", side + "-inner-box", obj);
+  changeHtml("id", $(that).data("side") + "-inner-box", obj);
 
   // Update dropdown list to match "is-active"
 
@@ -99,10 +100,14 @@ function populateDropdown() {
   // Add Click Functions (Need to do in a function)
   // BUG: i stays the same (13) after the last for() and when "click" is called, i is always 1
   for (i = 0; i < $('#dropdown-menu-right > .dropdown-content > a').length - 1; i++) {
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).click(function(){ select(i,"right"); return false; });
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).click(function(){ select($(this)); return false; });
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("nr", i);
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("side", "right");
   }
-  for (i = 0; i < $('#dropdown-menu-right > .dropdown-content > a').length - 1; i++) {
-    $('#dropdown-menu-left > .dropdown-content > a').eq(i).click(function(){ select(i,"left"); return false; });
+  for (i = 0; i < $('#dropdown-menu-left > .dropdown-content > a').length - 1; i++) {
+    $('#dropdown-menu-left > .dropdown-content > a').eq(i).click(function(){ select($(this)); return false; });
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("nr", i);
+    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("side", "left");
   }
 
 }
