@@ -24,7 +24,6 @@ var leftSelection = "";
 var rightSelection = "";
 
 function loaded() {
-  populateDropdown();
 }
 
 function toggleDropdown(side) {
@@ -43,85 +42,91 @@ function toggleDropdown(side) {
   }
 }
 
-function select(that) {
-  console.log($(that));
-  console.log("Selected " + $(that).data("nr"));
-  // Save, what currency is active.
-  if ($(that).data("side") == "left") {
-    leftSelection = $(that).data("nr");
-  } else if ($(that).data("side") == "right") {
-    rightSelection = $(that).data("nr");
+function select(nr, side) {
+
+  // Save, what currency is active per variable.
+  if (side == "left") {
+    leftSelection = nr;
+  } else if (side == "right") {
+    rightSelection = nr;
   }
 
   // Update the dropdown box text
-  $("#"+$(that).data("side")+"-text").html(currencies[nr].name);
+  $("#"+side+"-text").html(currencies[nr].name);
 
-  // Update the inner box
-  var obj = "";
-  changeHtml("id", $(that).data("side") + "-inner-box", obj);
+  // Close Dropdown Menu
+  toggleDropdown(side);
 
-  // Update dropdown list to match "is-active"
+  // URL für Anfrage an CryptoCompare
+  var url = api_url + "histoday?fsym=" + currencies[nr].tag.toUpperCase() + "&tsym=EUR&limit=10";
 
-}
-
-// Http Request an CryptoCompare für die Daten.
-function populateDropdown() {
-
-  var content = "";
-
-  // Create Left DropDown Content
-  for (i = 0; i < currencies.length; i++) {
-    content += '<a class="dropdown-item'
-    if (leftSelection==i) { content += ' is-active' }
-    // content += ' onclick="select('+i+', 0)">'; // NOT WORKING
-    content += '">';
-    content += currencies[i].name;
-    content += '</a>';
-  }
-  content = '<div class="dropdown-content">' + content + '</div>';
-
-  changeHtml("id", "dropdown-menu-left", content);
-
-  var content = "";
-
-  // Create Right DropDown Content
-  for (i = 0; i < currencies.length; i++) {
-    content += '<a class="dropdown-item'
-    if (leftSelection==i) { content += ' is-active' }
-    // content += ' onclick="select('+i+', 1)">'; // NOT WORKING
-    content += '">';
-    content += currencies[i].name;
-    content += '</a> ';
-  }
-  content = '<div class="dropdown-content">' + content + '</div>';
-
-  changeHtml("id", "dropdown-menu-right", content);
-
-  // Add Click Functions (Need to do in a function)
-  // BUG: i stays the same (13) after the last for() and when "click" is called, i is always 1
-  for (i = 0; i < $('#dropdown-menu-right > .dropdown-content > a').length - 1; i++) {
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).click(function(){ select($(this)); return false; });
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("nr", i);
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("side", "right");
-  }
-  for (i = 0; i < $('#dropdown-menu-left > .dropdown-content > a').length - 1; i++) {
-    $('#dropdown-menu-left > .dropdown-content > a').eq(i).click(function(){ select($(this)); return false; });
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("nr", i);
-    $('#dropdown-menu-right > .dropdown-content > a').eq(i).data("side", "left");
-  }
-
-}
-
-function setCurrency(name) {
-
-  /*  Vereinheitlichung der Anfragen:                                    /
-  /   Jquery sendet einen HttpRequest an das API, mithilfe einer         /
-  /   zusammengesetzten URL aus API, Name und Parametern.               */
-  var url = api_url + "price?fsym=" + name.toUpperCase() + "&tsyms=EUR";
-
+  // Update the inner box -> Wait for network
   $.get(url, function(responseText) {
-    // Bei Erhalt der Daten, aktualisiere die Seite.
-    document.getElementById(name + "-kurs").innerHTML = responseText["EUR"] + "€";
+
+    // On the answer, create the inner box
+    var obj = "<div class='columns'><div class='column is-two-thirds'>";
+    obj += "<canvas id='" + side + "-chart' width='400' height='400'></canvas></div>";
+    obj += "<div class='column'><h4 class='title is-4'>"+currencies[nr].name+"</h4></div></div>";
+    changeHtml("id", side + "-inner-box", obj);
+
+    // Datenverarbeitung
+    var chartData = { prices: [], labels: [] };
+    let dayCount = responseText.Data.length - 1;
+
+    // Erstelle Datenobjekt für das Diagramm
+    for (let d of responseText.Data) {
+      chartData.prices.push(d.close);
+      let dt = new Date();
+      dt.setDate(dt.getDate() - dayCount);
+      chartData.labels.push(dt.getDate() + "." + (dt.getMonth() + 1));
+      dayCount -= 1;
+    }
+
+    console.log(chartData);
+
+    // Währungsdiagramm
+    var ctx = $("#"+side + "-chart")[0].getContext('2d');
+    var newChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: chartData.labels,
+            datasets: [{
+                label: 'Kurs in €',
+                data: chartData.prices,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        //beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+    if (!$("#" + side + "-bottom-box").hasClass("cbox-active")) {
+      $("#" + side + "-bottom-box").addClass("cbox-active");
+    }
+
   });
 
 }

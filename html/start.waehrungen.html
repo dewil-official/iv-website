@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="../css/pages/waehrungen.css"> <!-- Stylesheet für globales Theme -->
 	<script src="../js/jquery.js"></script>
 	<script src="../js/jquery.rss.min.js"></script>
+	<script src="../js/chart.js"></script>
 	<script src="../js/waehrungen.js"></script>
 
 </head>
@@ -85,24 +86,40 @@
 	<!-- Seitencontent -->
 	<div id="current-site" class="columns">
 		<!-- Left-side box -->
-		<div class="column box">
+		<div class="column box comparebox">
 			<div id="left-inner-box"></div>
 			<!-- Dropdown currency selection -->
-			<div class="dropdown">
-				<div class="dropdown-trigger">
-					<button class="button" onclick='toggleDropdown("left")' aria-haspopup="true" aria-controls="dropdown-menu">
-			      <span id="left-text">Währung auswählen...</span>
-			      <span class="icon is-small">
-							<figure class="image is-16x16">
-							  <img src="../res/icon/arrow-down.svg">
-							</figure>
-			      </span>
-			    </button>
-				</div>
-				<!-- Currencies -->
-				<div class="dropdown-menu" id="dropdown-menu-left" role="menu">
-					<div class="dropdown-content">
-						<!-- Currency Selection gets Auto-Placed here -->
+			<div id="left-bottom-box">
+				<div class="dropdown">
+					<div class="dropdown-trigger">
+						<button class="button" onclick='toggleDropdown("left")' aria-haspopup="true" aria-controls="dropdown-menu">
+				      <span id="left-text">Währung auswählen...</span>
+				      <span class="icon is-small">
+								<figure class="image is-16x16">
+								  <img src="../res/icon/arrow-down.svg">
+								</figure>
+				      </span>
+				    </button>
+					</div>
+					<!-- Currencies -->
+					<div class="dropdown-menu" id="dropdown-menu-left" role="menu">
+						<div class="dropdown-content">
+							<!-- Currency Selection gets Auto-Placed here -->
+							<a class="dropdown-item" onclick="select(0,'left')">Bitcoin</a>
+							<a class="dropdown-item" onclick="select(1,'left')">Ethereum</a>
+							<a class="dropdown-item" onclick="select(2,'left')">Litecoin</a>
+							<a class="dropdown-item" onclick="select(3,'left')">XRP</a>
+							<a class="dropdown-item" onclick="select(4,'left')">Bitcoin Cash</a>
+							<a class="dropdown-item" onclick="select(5,'left')">Monero</a>
+							<a class="dropdown-item" onclick="select(6,'left')">Dash</a>
+							<a class="dropdown-item" onclick="select(7,'left')">Dogecoin</a>
+							<a class="dropdown-item" onclick="select(8,'left')">Stellar</a>
+							<a class="dropdown-item" onclick="select(9,'left')">Tether</a>
+							<a class="dropdown-item" onclick="select(10,'left')">Maker</a>
+							<a class="dropdown-item" onclick="select(11,'left')">Zcash</a>
+							<a class="dropdown-item" onclick="select(12,'left')">Ethereum Classic</a>
+							<a class="dropdown-item" onclick="select(13,'left')">Bytecoin</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -114,24 +131,40 @@
 			</figure>
 		</div>
 		<!-- Right-side box -->
-		<div class="column box">
+		<div class="column box comparebox">
 			<div id="right-inner-box"></div>
 			<!-- Dropdown currency selection -->
-			<div class="dropdown">
-				<div class="dropdown-trigger">
-					<button class="button" onclick='toggleDropdown("right")' aria-haspopup="true" aria-controls="dropdown-menu">
-			      <span id="right-text">Währung auswählen...</span>
-			      <span class="icon is-small">
-							<figure class="image is-16x16">
-							  <img src="../res/icon/arrow-down.svg">
-							</figure>
-			      </span>
-			    </button>
-				</div>
-				<!-- Currencies -->
-				<div class="dropdown-menu" id="dropdown-menu-right" role="menu">
-					<div class="dropdown-content">
-						<!-- Currency Selection gets Auto-Placed here -->
+			<div id="right-bottom-box">
+				<div class="dropdown">
+					<div class="dropdown-trigger">
+						<button class="button" onclick='toggleDropdown("right")' aria-haspopup="true" aria-controls="dropdown-menu">
+				      <span id="right-text">Währung auswählen...</span>
+				      <span class="icon is-small">
+								<figure class="image is-16x16">
+								  <img src="../res/icon/arrow-down.svg">
+								</figure>
+				      </span>
+				    </button>
+					</div>
+					<!-- Currencies -->
+					<div class="dropdown-menu" id="dropdown-menu-right" role="menu">
+						<div class="dropdown-content">
+							<!-- Currency Selection gets Auto-Placed here -->
+							<a class="dropdown-item" onclick="select(0,'right')">Bitcoin</a>
+							<a class="dropdown-item" onclick="select(1,'right')">Ethereum</a>
+							<a class="dropdown-item" onclick="select(2,'right')">Litecoin</a>
+							<a class="dropdown-item" onclick="select(3,'right')">XRP</a>
+							<a class="dropdown-item" onclick="select(4,'right')">Bitcoin Cash</a>
+							<a class="dropdown-item" onclick="select(5,'right')">Monero</a>
+							<a class="dropdown-item" onclick="select(6,'right')">Dash</a>
+							<a class="dropdown-item" onclick="select(7,'right')">Dogecoin</a>
+							<a class="dropdown-item" onclick="select(8,'right')">Stellar</a>
+							<a class="dropdown-item" onclick="select(9,'right')">Tether</a>
+							<a class="dropdown-item" onclick="select(10,'right')">Maker</a>
+							<a class="dropdown-item" onclick="select(11,'right')">Zcash</a>
+							<a class="dropdown-item" onclick="select(12,'right')">Ethereum Classic</a>
+							<a class="dropdown-item" onclick="select(13,'right')">Bytecoin</a>
+						</div>
 					</div>
 				</div>
 			</div>

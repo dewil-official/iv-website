@@ -5,6 +5,7 @@
 /* Nutze den ganzen Bildschirm */
 body {
   margin: 0px;
+  margin-bottom: 40px;
 }
 
 /* Informationsbereich */
