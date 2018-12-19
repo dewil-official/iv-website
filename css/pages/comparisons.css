@@ -1,0 +1,40 @@
+/* Imports */
+@import "../libs/bulma.min.css";
+@import "../libs/animate.css";
+
+/* Komponenten Imports */
+@import "../components/globals.css";
+
+/*--------------------------------------
+|       Eigenschaften von Index        |
+--------------------------------------*/
+
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-item {
+  filter: invert(0%);
+  color: #1a1a1a;
+  border-radius: 5px;
+}
+
+.panel {
+  margin: 4px;
+}
+
+figure {
+  margin-right: 8px;
+}
+
+.title {
+  margin: 18px 0px;
+}
+
+.star-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
