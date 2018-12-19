@@ -35,11 +35,11 @@ body {
 }
 
 .currency-box {
-  background-color: #dfdfdf;
+  border-style: solid;
+  border-color: #dfdfdf;
   border-radius: 5px;
   margin: 5px;
-  padding: 5px;
-  height: 9em;
+  padding: 10px;
 }
 
 .currency-box img {

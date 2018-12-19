@@ -12,6 +12,10 @@
 .navbar {
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
 }
 
 .navbar-item {
@@ -38,4 +42,9 @@ td > .image {
 
 .center {
   text-align: center;
+}
+
+body {
+  margin: 10px;
+  padding-top: 50px;
 }

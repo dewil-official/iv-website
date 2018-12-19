@@ -13,27 +13,33 @@
 
 	<!-- Scripts / Libs / CSS -->
 	<link rel="stylesheet" href="../css/pages/comparisons.css"> <!-- Stylesheet für globales Theme -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/burger.js"></script>
 
 </head>
 
 <body>
 
 	<nav class="navbar is-info">
-		<div class="navbar-start">
-			<a class="navbar-item">
-			  <img src="../res/logoWhite.svg" width="112" height="28" alt="Crypton">
-			</a>
-		</div>
-		<div class="navbar-end">
-			<a class="navbar-item" href="../index.html">
-				Start
-			</a>
-			<a class="navbar-item is-active" href="comparisons.wallettypes.html">
-				Vergleich
-			</a>
-			<a class="navbar-item" href="wiki.einleitung.html">
-				Wiki
-			</a>
+		<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item">
+					<img src="../res/logoWhite.svg">
+				</a>
+				<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			<!-- Obere Navbar-Tabs -->
+			<div id="navbarMenuHeroB" class="navbar-menu">
+				<div class="navbar-end">
+					<a class="navbar-item" href="../index.html">Start</a>
+					<a class="navbar-item is-active" href="comparisons.wallettypes.html">Vergleich</a>
+					<a class="navbar-item" href="wiki.einleitung.html">Wiki</a>
+				</div>
+			</div>
 		</div>
 	</nav>
 
