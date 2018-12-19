@@ -32,9 +32,10 @@ figure {
   margin: 18px 0px;
 }
 
-.star-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+td > .image {
+  display: inline;
+}
+
+.center {
+  text-align: center;
 }
