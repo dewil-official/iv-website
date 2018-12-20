@@ -56,6 +56,7 @@ function setCurrency(name) {
   $.get(url, function(responseText) {
     // Bei Erhalt der Daten, aktualisiere die Seite.
     document.getElementById(name + "-kurs").innerHTML = responseText["EUR"] + "€";
+    $("#"+name + "-kurs").addClass("animated fadeIn fast");
   });
 
 }
