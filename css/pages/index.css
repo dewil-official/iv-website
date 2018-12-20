@@ -17,6 +17,13 @@
   background-attachment: fixed;
 }
 
+/* Hero Titel Schriftart */
+.main-hero .title {
+  font-family: title-font;
+  font-weight: 300;
+  font-size: 40px;
+}
+
 /* Großer Titel Abstand */
 .start-title {
   margin-top: 40px;
@@ -32,16 +39,18 @@
   }
 
   /* Aussehen der Boxen pro Währung */
-  .currency-box {
-    border-style: solid;
-    border-color: #dfdfdf;
-    border-radius: 5px;
+  .box {
     margin: 5px;
     padding: 10px;
   }
 
+  /* Optionales Zentrieren, hier für Bilder */
+  .box .center {
+    text-align: center;
+  }
+
   /* Bildabstände */
-  .currency-box img {
+  .box img {
     height: 7em;
     margin: 5px;
   }
@@ -55,4 +64,5 @@
   .kurs {
     font-weight: bold;
     color: gray;
+    margin-bottom: 20px;
   }

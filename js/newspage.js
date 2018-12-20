@@ -7,7 +7,7 @@
 // Feed-URL und HTML Templates als Variablen
 const rss_url = "https://cryptocurrencynews.com/feed/";
 const outerHtml = '<div class="news">{entries}</div>';
-const innerHtml = '<article class="message"> <div class="message-body columns is-mobile"> <div class="column is-one-fifth"> <figure class="image"> <img src={teaserImage} </figure> </div><div class="column"> <strong>{title}</strong><br><p>{shortBody}</p><br><a href="{url}">Mehr...</a></div></div></article>';
+const innerHtml = '<div class="box"> <div class="columns is-mobile"> <div class="column is-one-fifth-desktop is-one-quarter-tablet is-one-third-mobile"> <figure class="image"> <img src={teaserImage} </figure> </div><div class="column"> <strong>{title}</strong><br><p>{shortBody}</p><br><a href="{url}">Mehr...</a></div></div></div>';
 
 
 // Wie der Feed dargestellt werden soll.

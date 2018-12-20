@@ -17,6 +17,13 @@
   background-attachment: fixed;
 }
 
+/* Hero Titel Schriftart */
+.main-hero .title {
+  font-family: title-font;
+  font-weight: 300;
+  font-size: 40px;
+}
+
 /* News-Feed */
 #current-site {
   text-align: center;

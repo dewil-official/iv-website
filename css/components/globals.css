@@ -2,10 +2,23 @@
 |   Eigenschaften für alle Hauptseiten   |
 ----------------------------------------*/
 
+/* Logo-Schriftart */
+@font-face {
+  font-family: title-font;
+  src: url("../../res/font/KeepCalm-Medium.ttf");
+}
+
 /* Nutze den ganzen Bildschirm */
 body {
   margin: 0px;
   margin-bottom: 40px;
+}
+
+/* Navbar runde Ecken und Abstände */
+.navbar-item {
+  border-radius: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 /* Informationsbereich */

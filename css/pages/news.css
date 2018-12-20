@@ -17,9 +17,11 @@
   background-attachment: fixed;
 }
 
-/* News-Feed */
-#current-site {
-  text-align: center;
+/* Hero Titel Schriftart */
+.main-hero .title {
+  font-family: title-font;
+  font-weight: 300;
+  font-size: 40px;
 }
 
 /* Feed-Abstand nach oben hin */
@@ -45,4 +47,12 @@
   margin-top: 20px;
   margin-bottom: 1000px;
   width: 400px;
+}
+
+/* Positioniere den Lade-Button */
+.is-loading {
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  margin-left: -200px; /* Negative Hälfte der Größe. */
 }
