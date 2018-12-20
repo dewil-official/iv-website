@@ -1,7 +1,9 @@
-/*
-    Erstelle den Graphen für den Banner
-*/
-// API: https://min-api.cryptocompare.com/
+/*---------------------------------------------------------------/
+/     Skript für Vergleich von Wechselkursen                     /
+/     -> API für Daten: https://min-api.cryptocompare.com/       /
+/---------------------------------------------------------------*/
+
+// Konstante Daten: API und Liste der Währungsnamen
 const api_url = "https://min-api.cryptocompare.com/data/";
 const currencies =
 [
@@ -20,58 +22,43 @@ const currencies =
   { tag:"etc", name:"Ethereum Classic"},
   { tag:"bcn", name:"Bytecoin"},
 ];
+
+// Speichert die aktuelle Auswahl
 var leftSelection = "";
 var rightSelection = "";
 
-function loaded() {
-  // Check for click events on the navbar burger icon
-  $(".navbar-burger").click(function() {
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
-  });
-}
-
+// Ein und Ausklappen der Dropdowns
 function toggleDropdown(side) {
   if (side == "left") {
-    if ($(".dropdown:first").hasClass("is-active")) {
-      $(".dropdown:first").removeClass("is-active");
-    } else {
-      $(".dropdown:first").addClass("is-active");
-    }
+    $(".dropdown:first").toggleClass("is-active");
   } else if (side == "right") {
-    if ($(".dropdown:last").hasClass("is-active")) {
-      $(".dropdown:last").removeClass("is-active");
-    } else {
-      $(".dropdown:last").addClass("is-active");
-    }
+    $(".dropdown:last").toggleClass("is-active");
   }
 }
 
+// Dropdown Auswahl für die einzelnen Währungen
 function select(nr, side) {
 
-  // Save, what currency is active per variable.
+  // Speichere die Auswahl
   if (side == "left") {
     leftSelection = nr;
   } else if (side == "right") {
     rightSelection = nr;
   }
 
-  // Update the dropdown box text
+  // Update den Button Text vom DropDown
   $("#"+side+"-text").html(currencies[nr].name);
 
-  // Close Dropdown Menu
+  // Schließe das Dropdown Menü
   toggleDropdown(side);
 
   // URL für Anfrage an CryptoCompare
   var url = api_url + "histoday?fsym=" + currencies[nr].tag.toUpperCase() + "&tsym=EUR&limit=10";
 
-  // Update the inner box -> Wait for network
+  // Netzwerkanfrage an API -> Bei Antwort ändere HTML
   $.get(url, function(responseText) {
 
-    // On the answer, create the inner box
+    // Erstellen des HTML Codes für die innere Box
     var obj = "<div class='columns'><div class='column is-two-thirds'>";
     obj += "<canvas id='" + side + "-chart' width='400' height='400'></canvas></div>";
     obj += "<div class='column'><h4 class='title is-4'>"+currencies[nr].name+"</h4></div></div>";
@@ -119,18 +106,10 @@ function select(nr, side) {
                 ],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        //beginAtZero:true
-                    }
-                }]
-            }
         }
     });
 
+    // Einweg Toggle für die Hintergrundfarbe des Dropdowns (Farbdivider)
     if (!$("#" + side + "-bottom-box").hasClass("cbox-active")) {
       $("#" + side + "-bottom-box").addClass("cbox-active");
     }
@@ -139,8 +118,7 @@ function select(nr, side) {
 
 }
 
-// Helper Functions
-
+// Hilfsfunktion: Ändere HTML Content
 function changeHtml(type, name, html) {
   if (type=="id") {
     document.getElementById(name).innerHTML = html;

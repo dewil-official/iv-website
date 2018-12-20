@@ -47,15 +47,8 @@ const options = {
 
 // Ausführen nach Laden des Dokuments
 $( document ).ready(function() {
+
   // Erstelle RSS News Feed
   $("#current-site").rss(rss_url, options);
 
-  // Wenn auf den Navbar-Button geklickt wird
-  $(".navbar-burger").click(function() {
-
-      // Wechselt den Status des Menüs und des Buttons
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
-  });
 });
