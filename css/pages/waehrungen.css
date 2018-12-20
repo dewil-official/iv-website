@@ -6,7 +6,7 @@
 @import "../components/globals.css";
 
 /*--------------------------------------
-|       Eigenschaften von Index        |
+|  Eigenschaften vom Währungsrechner   |
 --------------------------------------*/
 
 /* "Hero"-Bild für Index */
@@ -22,41 +22,42 @@
   text-align: center;
 }
 
+/* Haupttitel Abstand */
 .waehrungen-title {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
+/* Die beiden Spalten sind auch flex */
 .column {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Always center the exchange-icon */
+/* Das Pfeil-Icon muss immer Zentriert werden */
 .exchange-icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Fix a margin-issue in bulma */
+/* Fix für ein Margin-Problem von Bulma */
 .box:not(:last-child) {
   margin-bottom: 0;
 }
 
+/* Vergleich-Währungsbox ist auch flex */
 .comparebox {
   flex-direction: column;
   align-items: stretch;
 }
 
+/* Wird gesetzt, wenn Dropdown ausgewählt wurde,
+markiert den Background des Dropdowns */
 .cbox-active  {
   margin-top: 10px;
   background-color: rgb(220,220,220);
   padding: 10px;
   border-radius: 4px;
-}
-
-.body {
-  margin-bottom: 40px;
 }

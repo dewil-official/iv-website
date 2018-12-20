@@ -1,14 +1,17 @@
-/*
-    Erzeuge einen News-Feed durch RSS
-    https://github.com/sdepold/jquery-rss
-*/
+/*------------------------------------------------------------/
+/     Skript für automatischen Newsfeed                       /
+/     -> RSS-Feed: https://cryptocurrencynews.com/feed/       /
+/     -> Jquery-Rss: https://github.com/sdepold/jquery-rss    /
+/------------------------------------------------------------*/
+
+// Feed-URL und HTML Templates als Variablen
 const rss_url = "https://cryptocurrencynews.com/feed/";
-
 const outerHtml = '<div class="news">{entries}</div>';
-
 const innerHtml = '<article class="message"> <div class="message-body columns is-mobile"> <div class="column is-one-fifth"> <figure class="image"> <img src={teaserImage} </figure> </div><div class="column"> <strong>{title}</strong><br><p>{shortBody}</p><br><a href="{url}">Mehr...</a></div></div></article>';
 
+
 // Wie der Feed dargestellt werden soll.
+// -> Einstellungen für Jquery-RSS
 const options = {
   // Anzahl der Einträge
   limit: 10,
@@ -42,14 +45,17 @@ const options = {
   },
 }
 
-function loaded() {
+// Ausführen nach Laden des Dokuments
+$( document ).ready(function() {
+  // Erstelle RSS News Feed
   $("#current-site").rss(rss_url, options);
-  // Check for click events on the navbar burger icon
+
+  // Wenn auf den Navbar-Button geklickt wird
   $(".navbar-burger").click(function() {
 
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      // Wechselt den Status des Menüs und des Buttons
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
 
   });
-}
+});

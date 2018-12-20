@@ -9,6 +9,7 @@
 |       Eigenschaften von Index        |
 --------------------------------------*/
 
+/* Navbar Bulma-Mods: Fixed Position */
 .navbar {
   justify-content: space-between;
   align-items: center;
@@ -18,32 +19,37 @@
   left: 0px;
 }
 
+/* Runde Navbar Ecken */
 .navbar-item {
-  filter: invert(0%);
-  color: #1a1a1a;
   border-radius: 5px;
 }
 
+/* Abstand vom Nav-Panel */
 .panel {
   margin: 4px;
 }
 
+/* Icon-Abstand (genutzt im Panel) */
 figure {
   margin-right: 8px;
 }
 
+/* Titel-Abstand nach oben und unten */
 .title {
   margin: 18px 0px;
 }
 
+/* Sterne in den Tabellen nebeneinander */
 td > .image {
   display: inline;
 }
 
+/* Center-Klasse zentriert den Text */
 .center {
   text-align: center;
 }
 
+/* Überschreibe globale Body-Abstände wegen fixierter Navbar */
 body {
   margin: 10px;
   padding-top: 50px;

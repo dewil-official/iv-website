@@ -6,7 +6,7 @@
 @import "../components/globals.css";
 
 /*--------------------------------------
-|       Eigenschaften von Index        |
+|       Eigenschaften von News         |
 --------------------------------------*/
 
 /* "Hero"-Bild für Index */
@@ -22,21 +22,25 @@
   text-align: center;
 }
 
+/* Feed-Abstand nach oben hin */
 .news {
   margin-top: 60px;
   margin-bottom: 60px;
 }
 
+/* Feed Bilder */
 .news img {
   border-radius: 6px;
   max-height: 100px;
   width: auto;
 }
 
+/* Feed Haupttitel Abstand */
 .news-title {
   margin-top: 40px;
 }
 
+/* Seitencontent Abstände (und Breite) */
 #current-site .button {
   margin-top: 20px;
   margin-bottom: 1000px;

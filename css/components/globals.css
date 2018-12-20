@@ -21,31 +21,33 @@ body {
   margin-bottom: 20px;
 }
 
-/* "Hero"-Banner */
+/* "Hero"-Banner Text Schatten */
 .hero-body {
   text-shadow: 2px 2px 4px black;
 }
 
-/* Skaliere das Hintergrundbild des "Hero"-Banners */
+/* Skaliere das Hintergrundbild des "Hero"-Banners auf Desktop-Größe */
 @media screen and (min-width: 1200px) {
   .main-hero {
     background-size: 100vw;
   }
 }
 
+/* Skaliere das Hintergrundbild des "Hero"-Banners auf Tablet-Größe */
 @media screen and (min-width: 500px) and (max-width: 1200px) {
   .main-hero {
     background-size: 160vw;
   }
 }
 
+/* Skaliere das Hintergrundbild des "Hero"-Banners auf Mobil-Größe */
 @media screen and (max-width: 240px) {
   .main-hero {
     background-size: 160vw;
   }
 }
 
-/* Logo-Farbe */
+/* >_Crypton Logo-Farbe */
 .white {
   filter: invert(100%);
 }

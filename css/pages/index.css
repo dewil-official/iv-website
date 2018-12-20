@@ -9,7 +9,7 @@
 |       Eigenschaften von Index        |
 --------------------------------------*/
 
-/* "Hero"-Bild für Index */
+/* "Hero"-Bild für Hauptseite */
 .main-hero {
   background-image: url('../../res/img/banner.jpg');
   background-repeat: no-repeat;
@@ -17,41 +17,42 @@
   background-attachment: fixed;
 }
 
-body {
-  margin-bottom: 40px;
-}
-
+/* Großer Titel Abstand */
 .start-title {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
 /* Boxen für die aktuellen Kurse */
+  /* Zentriere die Spalten */
+  .columns {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5px;
+  }
 
-.columns {
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 5px;
-}
+  /* Aussehen der Boxen pro Währung */
+  .currency-box {
+    border-style: solid;
+    border-color: #dfdfdf;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+  }
 
-.currency-box {
-  border-style: solid;
-  border-color: #dfdfdf;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 10px;
-}
+  /* Bildabstände */
+  .currency-box img {
+    height: 7em;
+    margin: 5px;
+  }
 
-.currency-box img {
-  height: 7em;
-  margin: 5px;
-}
+  /* Textabstände */
+  .currency-box p {
+    margin-bottom: 22px;
+  }
 
-.currency-box p {
-  margin-bottom: 22px;
-}
-
-.kurs {
-  font-weight: bold;
-  color: gray;
-}
+  /* Aussehen der Kurszahl in Euro */
+  .kurs {
+    font-weight: bold;
+    color: gray;
+  }

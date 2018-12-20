@@ -1,53 +1,51 @@
-/*
-    Erstelle den Graphen für den Banner
-*/
+/*--------------------------------------------------/
+/     Skript für die Index-Seite und die Kurse      /
+/--------------------------------------------------*/
+
+
 // API: https://min-api.cryptocompare.com/
 const api_url = "https://min-api.cryptocompare.com/data/";
 
-function loaded() {
-  // getExchanges();
+// Wird ausgeführt, sobald die Seite geladen wurde.
+$( document ).ready(function() {
+
+  // Lade die Wechselkurse
   getExchanges();
   fallbackExchanges();
 
-  // Check for click events on the navbar burger icon
+  // Wenn auf den Navbar-Button geklickt wird
   $(".navbar-burger").click(function() {
 
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      // Wechselt den Status des Menüs und des Buttons
       $(".navbar-burger").toggleClass("is-active");
       $(".navbar-menu").toggleClass("is-active");
 
   });
-}
+});
 
 // Http Request an CryptoCompare für die Daten.
 function getExchanges() {
 
   // Bitcoin Kurs
   setCurrency("btc");
-
-  // Bitcoin Kurs
+  // Etherium Kurs
   setCurrency("eth");
-
   // Litecoin Kurs
   setCurrency("ltc");
-
   // XRP Kurs
   setCurrency("xrp");
-
   // Bitcoin Cash Kurs
   setCurrency("bch");
-
   // Monero Kurs
   setCurrency("xmr");
-
   // DashCoin Kurs
   setCurrency("dash");
-
   // Doge Kurs
   setCurrency("doge");
 
 }
 
+// Durch den Nametag der Währung, lade die Daten und ersetze sie im Code
 function setCurrency(name) {
 
   /*  Vereinheitlichung der Anfragen:                                    /
